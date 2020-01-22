@@ -86,24 +86,21 @@ soil4P['soil4P_mean_temp'] = soil4P[['Port 1.1', 'Port 2.1', 'Port 3.1', 'Port 4
 
 
 #---------------------  NEW DF OF COMBINED MOISTURE & TEMP MEANS   -----------------------
-#Index2 = list(set(list(soil1P.index) + list(soil2P.index) + list(soil3P.index) + list(soil4P.index)))
-#Index2.sort()
-#soildata_means = pd.DataFrame({'soil1P_mean_moisture': [soil1P.loc[Date, 'soil1P_mean_moisture'] if Date in soil1P.index else np.nan for Date in Index2],\
-#                'soil2P_mean_moisture': [soil2P.loc[Date, 'soil2P_mean_moisture'] if Date in soil2P.index else np.nan for Date in Index2],\
-#                'soil3P_mean_moisture': [soil3P.loc[Date, 'soil3P_mean_moisture'] if Date in soil3P.index else np.nan for Date in Index2],\
-#                'soil4P_mean_moisture': [soil4P.loc[Date, 'soil4P_mean_moisture'] if Date in soil4P.index else np.nan for Date in Index2],\
-#                'soil1P_mean_temp': [soil1P.loc[Date, 'soil1P_mean_temp'] if Date in soil1P.index else np.nan for Date in Index2],\
-#                'soil2P_mean_temp': [soil2P.loc[Date, 'soil2P_mean_temp'] if Date in soil2P.index else np.nan for Date in Index2],\
-#                'soil3P_mean_temp': [soil3P.loc[Date, 'soil3P_mean_temp'] if Date in soil3P.index else np.nan for Date in Index2],\
-#                'soil4P_mean_temp': [soil4P.loc[Date, 'soil4P_mean_temp'] if Date in soil4P.index else np.nan for Date in Index2]},\
-#                index = Index2)
-#soildata_means.index.name = 'DateTime'
+Index2 = list(set(list(soil1P.index) + list(soil2P.index) + list(soil3P.index) + list(soil4P.index)))
+Index2.sort()
+soildata_means = pd.DataFrame({'soil1P_mean_moisture': [soil1P.loc[Date, 'soil1P_mean_moisture'] if Date in soil1P.index else np.nan for Date in Index2],\
+                'soil2P_mean_moisture': [soil2P.loc[Date, 'soil2P_mean_moisture'] if Date in soil2P.index else np.nan for Date in Index2],\
+                'soil3P_mean_moisture': [soil3P.loc[Date, 'soil3P_mean_moisture'] if Date in soil3P.index else np.nan for Date in Index2],\
+                'soil4P_mean_moisture': [soil4P.loc[Date, 'soil4P_mean_moisture'] if Date in soil4P.index else np.nan for Date in Index2],\
+                'soil1P_mean_temp': [soil1P.loc[Date, 'soil1P_mean_temp'] if Date in soil1P.index else np.nan for Date in Index2],\
+                'soil2P_mean_temp': [soil2P.loc[Date, 'soil2P_mean_temp'] if Date in soil2P.index else np.nan for Date in Index2],\
+                'soil3P_mean_temp': [soil3P.loc[Date, 'soil3P_mean_temp'] if Date in soil3P.index else np.nan for Date in Index2],\
+                'soil4P_mean_temp': [soil4P.loc[Date, 'soil4P_mean_temp'] if Date in soil4P.index else np.nan for Date in Index2]},\
+                index = Index2)
+soildata_means.index.name = 'DateTime'
 ##soildata_means = soildata_means[np.isfinite(soildata_means['soil1P_mean_moisture'])]
-#soildata_means = soildata_means.dropna(how='all')
-
 ##soildata_means = soildata_means.astype(np.float64)
 ##soildata_means = soildata_means['soil1P_mean_moisture'].astype(float)
-
 
 # Mean of all moisture and temp columns
 ##soildata_means['soil_moisture_mean'] = soildata_means[['soil1P_mean_moisture', 'soil2P_mean_moisture', 'soil3P_mean_moisture', 'soil4P_mean_moisture']].mean(axis=1)
